@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Support | Sajilo Sathi</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-15px);
+      }
+    }
+
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fadeInUp {
+      animation: fadeInUp 1s ease forwards;
+      opacity: 0;
+    }
+
+    .glass-card {
+      backdrop-filter: blur(10px) saturate(180%);
+      background-color: rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+
+    ::placeholder {
+      color: rgba(107, 114, 128, 0.7);
+    }
+
+    /* Popup slide animation */
+    .slide-in {
+      animation: slideIn 0.3s forwards;
+    }
+
+    .slide-out {
+      animation: slideOut 0.3s forwards;
+    }
+
+    @keyframes slideIn {
+      0% {
+        transform: translateY(100px);
+        opacity: 0;
+      }
+
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideOut {
+      0% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(100px);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 relative overflow-x-hidden font-sans text-gray-800">
+
+  <!-- Header -->
+  <header
+    class="bg-white/90 backdrop-blur-md shadow-md sticky top-0 z-50 border-b border-gray-200 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="index.html"
+        class="text-3xl font-extrabold text-red-600 hover:text-red-700 transition-colors duration-300 select-none">
+        Sajilo Sathi
+      </a>
+  
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex space-x-10 text-base font-semibold text-gray-700 tracking-wide">
+        <a href="index.html" class="relative group px-2 py-1 hover:text-red-600 focus:outline-none  rounded-md">
+          Home
+          <span
+            class="absolute left-0 -bottom-1 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full group-focus:w-full"></span>
+        </a>
+        <a href="ride.html" class="relative group px-2 py-1 hover:text-red-600 focus:outline-none  rounded-md">
+          Ride
+          <span
+            class="absolute left-0 -bottom-1 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full group-focus:w-full"></span>
+        </a>
+        <a href="food.html" class="relative group px-2 py-1 hover:text-red-600 focus:outline-none  rounded-md">
+          Food
+          <span
+            class="absolute left-0 -bottom-1 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full group-focus:w-full"></span>
+        </a>
+        <a href="hire.html" class="relative group px-2 py-1 hover:text-red-600 focus:outline-none  rounded-md">
+          Hire
+          <span
+            class="absolute left-0 -bottom-1 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full group-focus:w-full"></span>
+        </a>
+        <a href="support.html" class="relative group px-2 py-1 hover:text-red-600 focus:outline-none  rounded-md">
+          Support
+          <span
+            class="absolute left-0 -bottom-1 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full group-focus:w-full"></span>
+        </a>
+      </nav>
+  
+      <!-- Mobile Menu Button -->
+      <button id="menu-btn" aria-label="Toggle menu" aria-expanded="false"
+        class="md:hidden flex flex-col justify-center items-center w-10 h-10 space-y-2 focus:outline-none focus:ring-red-600 rounded">
+        <span class="block w-7 h-0.5 bg-red-600 rounded transition-transform origin-left duration-300"></span>
+        <span class="block w-7 h-0.5 bg-red-600 rounded transition-opacity duration-300"></span>
+        <span class="block w-7 h-0.5 bg-red-600 rounded transition-transform origin-left duration-300"></span>
+      </button>
+    </div>
+  
+    <!-- Mobile Nav Menu -->
+    <nav id="mobile-menu"
+      class="hidden md:hidden bg-white border-t border-gray-200 shadow-lg max-w-7xl mx-auto px-6 py-6 space-y-6 text-center font-semibold text-gray-700 rounded-b-lg">
+      <a href="index.html" class="block py-3 text-lg rounded-md hover:text-red-600 focus:outline-none  transition">
+        Home
+      </a>
+      <a href="ride.html" class="block py-3 text-lg rounded-md hover:text-red-600 focus:outline-none  transition">
+        Ride
+      </a>
+      <a href="food.html" class="block py-3 text-lg rounded-md hover:text-red-600 focus:outline-none  transition">
+        Food
+      </a>
+      <a href="hire.html" class="block py-3 text-lg rounded-md hover:text-red-600 focus:outline-none  transition">
+        Hire
+      </a>
+      <a href="support.html" class="block py-3 text-lg rounded-md hover:text-red-600 focus:outline-none  transition">
+        Support
+      </a>
+      <button onclick="toggleModal(true)"
+        class="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-500 transition hidden md:block">Login /
+        Signup</button>
+    </nav>
+  </header>
+
+  <!-- Floating Icons -->
+  <div class="absolute top-16 left-10 w-14 h-14 bg-red-200 rounded-full opacity-30 animate-float"></div>
+  <div class="absolute top-64 right-16 w-20 h-20 bg-red-300 rounded-full opacity-20 animate-float"></div>
+  <div class="absolute bottom-32 left-32 w-24 h-24 bg-red-100 rounded-full opacity-20 animate-float"></div>
+
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-r from-red-500 to-red-600 text-white py-32 overflow-hidden">
+    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/connected.png')] opacity-5">
+    </div>
+    <div class="max-w-5xl mx-auto px-6 text-center relative z-10 animate-fadeInUp">
+      <h1 class="text-5xl md:text-6xl font-extrabold mb-4 drop-shadow-lg">We’re Here to Help</h1>
+      <p class="text-lg md:text-xl mb-8">Need assistance? Find answers quickly or get in touch with our support team.
+      </p>
+      <button id="openChat"
+        class="bg-white/30 text-white font-semibold py-3 px-8 rounded-full hover:bg-white/50 transition duration-300 shadow-lg">Live
+        Chat</button>
+    </div>
+  </section>
+
+  <!-- Support Channels -->
+  <section class="py-20 relative z-10 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">How Can We Help?</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Email -->
+        <div
+          class="glass-card p-8 rounded-3xl text-center shadow-xl hover:shadow-2xl transition-transform transform hover:scale-105 cursor-pointer">
+          <div class="bg-red-600 w-20 h-20 rounded-full mx-auto mb-5 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path d="M16 12H8m8 4H8m4-8H8m0 0L4 6m0 0l8 6 8-6-8 6z" stroke-linecap="round" stroke-linejoin="round"
+                stroke-width="2" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-2 text-gray-800">Email Support</h3>
+          <p class="text-gray-600 text-sm">Send us an email and we’ll respond promptly.</p>
+        </div>
+        <!-- Live Chat -->
+        <div
+          class="glass-card p-8 rounded-3xl text-center shadow-xl hover:shadow-2xl transition-transform transform hover:scale-105 cursor-pointer">
+          <div class="bg-red-500 w-20 h-20 rounded-full mx-auto mb-5 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path d="M8 10h8M8 14h6m-6-4v8a2 2 0 002 2h4l4 4V10a2 2 0 00-2-2H8z" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="2" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-2 text-gray-800">Live Chat</h3>
+          <p class="text-gray-600 text-sm">Chat instantly with our support representatives.</p>
+        </div>
+        <!-- Phone -->
+        <div
+          class="glass-card p-8 rounded-3xl text-center shadow-xl hover:shadow-2xl transition-transform transform hover:scale-105 cursor-pointer">
+          <div class="bg-red-700 w-20 h-20 rounded-full mx-auto mb-5 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path
+                d="M3 5.5a2.5 2.5 0 012.5-2.5h3a2.5 2.5 0 012.5 2.5v3a2.5 2.5 0 01-2.5 2.5H5.5A2.5 2.5 0 013 8.5v-3zM16 16l4 4m0 0l-4 4m4-4H12"
+                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-2 text-gray-800">Phone Support</h3>
+          <p class="text-gray-600 text-sm">Call us for urgent support and guidance.</p>
+        </div>
+        <!-- Social Media -->
+        <div
+          class="glass-card p-8 rounded-3xl text-center shadow-xl hover:shadow-2xl transition-transform transform hover:scale-105 cursor-pointer">
+          <div class="bg-red-400 w-20 h-20 rounded-full mx-auto mb-5 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path d="M18 2h4v4h-4V2zm0 16h4v4h-4v-4zm-16 0h4v4H2v-4zm0-16h4v4H2V2zM7 7l10 10" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="2" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-2 text-gray-800">Social Media</h3>
+          <p class="text-gray-600 text-sm">Reach us on Facebook, Twitter, and Instagram.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <section id="contact" class="py-20 relative z-10 bg-gray-50">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">Contact Us</h2>
+      <form class="glass-card p-10 rounded-3xl shadow-2xl space-y-6">
+        <input type="text" placeholder="Your Name"
+          class="w-full p-4 rounded-xl bg-white/80 text-gray-800 border border-white/40 focus:ring-2 focus:ring-red-400 outline-none" />
+        <input type="email" placeholder="Your Email"
+          class="w-full p-4 rounded-xl bg-white/80 text-gray-800 border border-white/40 focus:ring-2 focus:ring-red-400 outline-none" />
+        <textarea placeholder="Your Message" rows="5"
+          class="w-full p-4 rounded-xl bg-white/80 text-gray-800 border border-white/40 focus:ring-2 focus:ring-red-400 outline-none"></textarea>
+        <button type="submit"
+          class="bg-red-600 text-white py-3 px-8 rounded-full hover:bg-red-700 transition shadow-lg font-semibold">Send
+          Message</button>
+      </form>
+    </div>
+  </section>
+  <!-- Footer -->
+  <footer
+    class="relative bg-white/70 backdrop-blur-lg border-t border-gray-200 text-gray-700 text-sm py-10 mt-16 overflow-hidden">
+  
+    <!-- Floating gradient circles for style -->
+    <div
+      class="absolute -top-10 -left-10 w-40 h-40 bg-gradient-to-tr from-red-200 to-red-400 rounded-full opacity-30 blur-3xl animate-float">
+    </div>
+    <div
+      class="absolute -bottom-16 -right-10 w-60 h-60 bg-gradient-to-tr from-red-300 to-red-500 rounded-full opacity-20 blur-3xl animate-float">
+    </div>
+  
+    <div class="relative max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+  
+      <!-- Left Section -->
+      <p class="text-gray-600 text-center md:text-left">&copy; 2025
+        <span class="font-bold text-red-600">Sajilo Sathi</span>. All rights reserved.
+      </p>
+  
+      <!-- Right Links -->
+      <div class="flex flex-wrap justify-center md:justify-end gap-6">
+        <a href="#"
+          class="hover:text-red-600 font-medium transition-all duration-300 transform hover:scale-110">Privacy</a>
+        <a href="#" class="hover:text-red-600 font-medium transition-all duration-300 transform hover:scale-110">Terms</a>
+        <a href="#"
+          class="hover:text-red-600 font-medium transition-all duration-300 transform hover:scale-110">Contact</a>
+      </div>
+    </div>
+  
+    <!-- Divider -->
+    <div class="border-t border-gray-200 mt-8 max-w-7xl mx-auto"></div>
+  
+    <!-- Social Icons -->
+    <div class="relative max-w-7xl mx-auto px-6 mt-6 flex justify-center md:justify-end gap-6">
+    
+      <!-- Facebook -->
+      <a href="#"
+        class="relative group w-12 h-12 flex items-center justify-center rounded-full overflow-hidden transition-transform duration-300 transform hover:scale-110">
+        <span
+          class="absolute inset-0 bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 opacity-50  animate-gradient-x"></span>
+        <i class="fab fa-facebook-f text-white text-xl relative z-10 group-hover:drop-shadow-lg"></i>
+      </a>
+    
+      <!-- Twitter -->
+      <a href="#"
+        class="relative group w-12 h-12 flex items-center justify-center rounded-full overflow-hidden transition-transform duration-300 transform hover:scale-110">
+        <span
+          class="absolute inset-0 bg-gradient-to-r from-cyan-400 via-sky-500 to-blue-500 opacity-50  animate-gradient-x"></span>
+        <i class="fab fa-twitter text-white text-xl relative z-10 group-hover:drop-shadow-lg"></i>
+      </a>
+    
+      <!-- Instagram -->
+      <a href="#"
+        class="relative group w-12 h-12 flex items-center justify-center rounded-full overflow-hidden transition-transform duration-300 transform hover:scale-110">
+        <span
+          class="absolute inset-0 bg-gradient-to-r from-pink-400 via-pink-500 to-yellow-400 opacity-50  animate-gradient-x"></span>
+        <i class="fab fa-instagram text-white text-xl relative z-10 group-hover:drop-shadow-lg"></i>
+      </a>
+    
+      <!-- LinkedIn -->
+      <a href="#"
+        class="relative group w-12 h-12 flex items-center justify-center rounded-full overflow-hidden transition-transform duration-300 transform hover:scale-110">
+        <span
+          class="absolute inset-0 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 opacity-50  animate-gradient-x"></span>
+        <i class="fab fa-linkedin-in text-white text-xl relative z-10 group-hover:drop-shadow-lg"></i>
+      </a>
+    
+    </div>
+    
+    
+
+  </footer>
+
+
+
+  <!-- Live Chat Popup -->
+  <div id="chatPopup"
+    class="hidden fixed bottom-8 right-8 w-80 bg-white rounded-xl shadow-2xl border border-gray-200 overflow-hidden z-50">
+    <div class="bg-red-600 text-white px-4 py-3 flex justify-between items-center">
+      <h3 class="font-semibold">Live Chat</h3>
+      <button id="closeChat" class="text-white font-bold text-lg">&times;</button>
+    </div>
+    <div class="p-4 space-y-3 max-h-64 overflow-y-auto">
+      <div class="bg-gray-100 p-2 rounded">Hello! How can we help you today?</div>
+    </div>
+    <div class="p-4 flex gap-2">
+      <input type="text" placeholder="Type your message..."
+        class="flex-1 p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-red-400">
+      <button class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition">Send</button>
+    </div>
+  </div>
+
+  <script>
+    const openChatBtn = document.getElementById('openChat');
+    const closeChatBtn = document.getElementById('closeChat');
+    const chatPopup = document.getElementById('chatPopup');
+
+    openChatBtn.addEventListener('click', () => {
+      chatPopup.classList.remove('hidden');
+      chatPopup.classList.remove('slide-out');
+      chatPopup.classList.add('slide-in');
+    });
+
+    closeChatBtn.addEventListener('click', () => {
+      chatPopup.classList.remove('slide-in');
+      chatPopup.classList.add('slide-out');
+      setTimeout(() => chatPopup.classList.add('hidden'), 300);
+    });
+  </script>
+
+</body>
+
+</html>

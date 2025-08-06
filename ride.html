@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sajilo Sathi | Ride Booking</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/heroicons@1.0.6/outline/index.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif']
+          },
+          animation: {
+            fadeIn: 'fadeIn 1.2s ease-in-out',
+            float: 'float 6s ease-in-out infinite',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: 0 },
+              '100%': { opacity: 1 }
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-8px)' }
+            }
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    ::selection {
+      background-color: #dc143c33;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Header -->
+  <header
+    class="bg-white/90 backdrop-blur-md shadow-md sticky top-0 z-50 border-b border-gray-200 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="index.html"
+        class="text-3xl font-extrabold text-red-600 hover:text-red-700 transition-colors duration-300 select-none">
+        Sajilo Sathi
+      </a>
+  
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex space-x-10 text-base font-semibold text-gray-700 tracking-wide">
+        <a href="index.html" class="relative group px-2 py-1 hover:text-red-600 focus:outline-none  rounded-md">
+          Home
+          <span
+            class="absolute left-0 -bottom-1 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full group-focus:w-full"></span>
+        </a>
+        <a href="ride.html" class="relative group px-2 py-1 hover:text-red-600 focus:outline-none  rounded-md">
+          Ride
+          <span
+            class="absolute left-0 -bottom-1 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full group-focus:w-full"></span>
+        </a>
+        <a href="food.html" class="relative group px-2 py-1 hover:text-red-600 focus:outline-none  rounded-md">
+          Food
+          <span
+            class="absolute left-0 -bottom-1 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full group-focus:w-full"></span>
+        </a>
+        <a href="hire.html" class="relative group px-2 py-1 hover:text-red-600 focus:outline-none  rounded-md">
+          Hire
+          <span
+            class="absolute left-0 -bottom-1 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full group-focus:w-full"></span>
+        </a>
+        <a href="support.html" class="relative group px-2 py-1 hover:text-red-600 focus:outline-none  rounded-md">
+          Support
+          <span
+            class="absolute left-0 -bottom-1 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full group-focus:w-full"></span>
+        </a>
+      </nav>
+  
+      <!-- Mobile Menu Button -->
+      <button id="menu-btn" aria-label="Toggle menu" aria-expanded="false"
+        class="md:hidden flex flex-col justify-center items-center w-10 h-10 space-y-2 focus:outline-none focus:ring-red-600 rounded">
+        <span class="block w-7 h-0.5 bg-red-600 rounded transition-transform origin-left duration-300"></span>
+        <span class="block w-7 h-0.5 bg-red-600 rounded transition-opacity duration-300"></span>
+        <span class="block w-7 h-0.5 bg-red-600 rounded transition-transform origin-left duration-300"></span>
+      </button>
+    </div>
+  
+    <!-- Mobile Nav Menu -->
+    <nav id="mobile-menu"
+      class="hidden md:hidden bg-white border-t border-gray-200 shadow-lg max-w-7xl mx-auto px-6 py-6 space-y-6 text-center font-semibold text-gray-700 rounded-b-lg">
+      <a href="index.html" class="block py-3 text-lg rounded-md hover:text-red-600 focus:outline-none  transition">
+        Home
+      </a>
+      <a href="ride.html" class="block py-3 text-lg rounded-md hover:text-red-600 focus:outline-none  transition">
+        Ride
+      </a>
+      <a href="food.html" class="block py-3 text-lg rounded-md hover:text-red-600 focus:outline-none  transition">
+        Food
+      </a>
+      <a href="hire.html" class="block py-3 text-lg rounded-md hover:text-red-600 focus:outline-none  transition">
+        Hire
+      </a>
+      <a href="support.html" class="block py-3 text-lg rounded-md hover:text-red-600 focus:outline-none  transition">
+        Support
+      </a>
+      <button onclick="toggleModal(true)"
+        class="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-500 transition hidden md:block">Login /
+        Signup</button>
+    </nav>
+  </header>
+
+
+  <!-- Ride Booking Section -->
+  <main class="max-w-7xl mx-auto px-6 py-16 animate-fadeIn">
+    <h2 class="text-4xl font-bold text-center mb-12 text-gray-800 tracking-tight">Book Your Ride</h2>
+
+    <div class="grid md:grid-cols-2 gap-12">
+      <!-- Booking Form -->
+      <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100">
+        <div class="space-y-6">
+          <div>
+            <label class="block text-sm font-semibold mb-2">Pickup Location</label>
+            <input type="text" placeholder="Where should we pick you up?"
+              class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500 transition">
+          </div>
+          <div>
+            <label class="block text-sm font-semibold mb-2">Drop-off Location</label>
+            <input type="text" placeholder="Where are you headed?"
+              class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500 transition">
+          </div>
+          <div>
+            <label class="block text-sm font-semibold mb-2">Select Vehicle</label>
+            <select id="vehicle"
+              class="w-full p-3 rounded-lg border border-gray-300 bg-white appearance-none focus:outline-none focus:ring-2 focus:ring-red-500 transition">
+              <option value="bike">Bike 🏍️</option>
+              <option value="car">Car 🚗</option>
+              <option value="suv">SUV 🚙</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold mb-2">Estimated Fare</label>
+            <input type="text" id="fare" class="w-full p-3 rounded-lg bg-gray-100 border border-gray-200 text-gray-700"
+              readonly>
+          </div>
+          <button onclick="calculateFare()"
+            class="w-full py-3 bg-red-600 text-white rounded-lg font-semibold hover:bg-red-500 transition duration-300">Calculate
+            Fare</button>
+        </div>
+      </div>
+
+      <!-- Google Maps & Driver Info -->
+      <div class="space-y-10">
+        <iframe class="w-full h-64 rounded-xl shadow-lg border border-gray-200"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.1517755240956!2d85.32396061505291!3d27.707805932769885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb190b6f7b539f%3A0x4743ab671e4b9b8e!2sKathmandu!5e0!3m2!1sen!2snp!4v1660303707874!5m2!1sen!2snp"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+        <!-- Top Drivers -->
+        <div class="bg-white p-6 rounded-2xl shadow-xl border border-gray-100">
+          <h4 class="text-xl font-semibold mb-6">Top Rated Drivers</h4>
+          <div class="space-y-5">
+            <div class="flex justify-between items-center">
+              <div>
+                <p class="font-semibold">Ramesh K.</p>
+                <p class="text-sm text-gray-500">1,200 Rides</p>
+              </div>
+              <div class="text-yellow-500 text-lg">★★★★☆</div>
+            </div>
+            <div class="flex justify-between items-center">
+              <div>
+                <p class="font-semibold">Sita T.</p>
+                <p class="text-sm text-gray-500">980 Rides</p>
+              </div>
+              <div class="text-yellow-500 text-lg">★★★★★</div>
+            </div>
+            <div class="flex justify-between items-center">
+              <div>
+                <p class="font-semibold">Raju D.</p>
+                <p class="text-sm text-gray-500">1,100 Rides</p>
+              </div>
+              <div class="text-yellow-500 text-lg">★★★☆☆</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer
+    class="relative bg-white/70 backdrop-blur-lg border-t border-gray-200 text-gray-700 text-sm py-10 mt-16 overflow-hidden">
+  
+    <!-- Floating gradient circles for style -->
+    <div
+      class="absolute -top-10 -left-10 w-40 h-40 bg-gradient-to-tr from-red-200 to-red-400 rounded-full opacity-30 blur-3xl animate-float">
+    </div>
+    <div
+      class="absolute -bottom-16 -right-10 w-60 h-60 bg-gradient-to-tr from-red-300 to-red-500 rounded-full opacity-20 blur-3xl animate-float">
+    </div>
+  
+    <div class="relative max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+  
+      <!-- Left Section -->
+      <p class="text-gray-600 text-center md:text-left">&copy; 2025
+        <span class="font-bold text-red-600">Sajilo Sathi</span>. All rights reserved.
+      </p>
+  
+      <!-- Right Links -->
+      <div class="flex flex-wrap justify-center md:justify-end gap-6">
+        <a href="#"
+          class="hover:text-red-600 font-medium transition-all duration-300 transform hover:scale-110">Privacy</a>
+        <a href="#" class="hover:text-red-600 font-medium transition-all duration-300 transform hover:scale-110">Terms</a>
+        <a href="#"
+          class="hover:text-red-600 font-medium transition-all duration-300 transform hover:scale-110">Contact</a>
+      </div>
+    </div>
+  
+    <!-- Divider -->
+    <div class="border-t border-gray-200 mt-8 max-w-7xl mx-auto"></div>
+  
+    <!-- Social Icons -->
+    <div class="relative max-w-7xl mx-auto px-6 mt-6 flex justify-center md:justify-end gap-6">
+  
+      <!-- Facebook -->
+      <a href="#"
+        class="relative group w-12 h-12 flex items-center justify-center rounded-full overflow-hidden transition-transform duration-300 transform hover:scale-110">
+        <span
+          class="absolute inset-0 bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 opacity-50  animate-gradient-x"></span>
+        <i class="fab fa-facebook-f text-white text-xl relative z-10 group-hover:drop-shadow-lg"></i>
+      </a>
+  
+      <!-- Twitter -->
+      <a href="#"
+        class="relative group w-12 h-12 flex items-center justify-center rounded-full overflow-hidden transition-transform duration-300 transform hover:scale-110">
+        <span
+          class="absolute inset-0 bg-gradient-to-r from-cyan-400 via-sky-500 to-blue-500 opacity-50  animate-gradient-x"></span>
+        <i class="fab fa-twitter text-white text-xl relative z-10 group-hover:drop-shadow-lg"></i>
+      </a>
+  
+      <!-- Instagram -->
+      <a href="#"
+        class="relative group w-12 h-12 flex items-center justify-center rounded-full overflow-hidden transition-transform duration-300 transform hover:scale-110">
+        <span
+          class="absolute inset-0 bg-gradient-to-r from-pink-400 via-pink-500 to-yellow-400 opacity-50  animate-gradient-x"></span>
+        <i class="fab fa-instagram text-white text-xl relative z-10 group-hover:drop-shadow-lg"></i>
+      </a>
+  
+      <!-- LinkedIn -->
+      <a href="#"
+        class="relative group w-12 h-12 flex items-center justify-center rounded-full overflow-hidden transition-transform duration-300 transform hover:scale-110">
+        <span
+          class="absolute inset-0 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 opacity-50  animate-gradient-x"></span>
+        <i class="fab fa-linkedin-in text-white text-xl relative z-10 group-hover:drop-shadow-lg"></i>
+      </a>
+  
+    </div>
+  
+  
+  
+  </footer>
+
+  <script>
+    function calculateFare() {
+      const vehicle = document.getElementById('vehicle').value;
+      let fare = 0;
+      switch (vehicle) {
+        case 'bike':
+          fare = 50 + Math.random() * 50;
+          break;
+        case 'car':
+          fare = 100 + Math.random() * 100;
+          break;
+        case 'suv':
+          fare = 150 + Math.random() * 150;
+          break;
+      }
+      document.getElementById('fare').value = `Rs. ${fare.toFixed(2)}`;
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sajilo Sathi | Food Delivery</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+          },
+          animation: {
+            fadeIn: 'fadeIn 1.5s ease-in-out',
+            float: 'float 6s ease-in-out infinite',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: 0 },
+              '100%': { opacity: 1 },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Header -->
+  <header
+    class="bg-white/90 backdrop-blur-md shadow-md sticky top-0 z-50 border-b border-gray-200 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="index.html"
+        class="text-3xl font-extrabold text-red-600 hover:text-red-700 transition-colors duration-300 select-none">
+        Sajilo Sathi
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex space-x-10 text-base font-semibold text-gray-700 tracking-wide">
+        <a href="index.html" class="relative group px-2 py-1 hover:text-red-600 focus:outline-none  rounded-md">
+          Home
+          <span
+            class="absolute left-0 -bottom-1 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full group-focus:w-full"></span>
+        </a>
+        <a href="ride.html" class="relative group px-2 py-1 hover:text-red-600 focus:outline-none  rounded-md">
+          Ride
+          <span
+            class="absolute left-0 -bottom-1 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full group-focus:w-full"></span>
+        </a>
+        <a href="food.html" class="relative group px-2 py-1 hover:text-red-600 focus:outline-none  rounded-md">
+          Food
+          <span
+            class="absolute left-0 -bottom-1 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full group-focus:w-full"></span>
+        </a>
+        <a href="hire.html" class="relative group px-2 py-1 hover:text-red-600 focus:outline-none  rounded-md">
+          Hire
+          <span
+            class="absolute left-0 -bottom-1 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full group-focus:w-full"></span>
+        </a>
+        <a href="support.html" class="relative group px-2 py-1 hover:text-red-600 focus:outline-none  rounded-md">
+          Support
+          <span
+            class="absolute left-0 -bottom-1 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full group-focus:w-full"></span>
+        </a>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <button id="menu-btn" aria-label="Toggle menu" aria-expanded="false"
+        class="md:hidden flex flex-col justify-center items-center w-10 h-10 space-y-2 focus:outline-none focus:ring-red-600 rounded">
+        <span class="block w-7 h-0.5 bg-red-600 rounded transition-transform origin-left duration-300"></span>
+        <span class="block w-7 h-0.5 bg-red-600 rounded transition-opacity duration-300"></span>
+        <span class="block w-7 h-0.5 bg-red-600 rounded transition-transform origin-left duration-300"></span>
+      </button>
+    </div>
+
+    <!-- Mobile Nav Menu -->
+    <nav id="mobile-menu"
+      class="hidden md:hidden bg-white border-t border-gray-200 shadow-lg max-w-7xl mx-auto px-6 py-6 space-y-6 text-center font-semibold text-gray-700 rounded-b-lg">
+      <a href="index.html" class="block py-3 text-lg rounded-md hover:text-red-600 focus:outline-none  transition">
+        Home
+      </a>
+      <a href="ride.html" class="block py-3 text-lg rounded-md hover:text-red-600 focus:outline-none  transition">
+        Ride
+      </a>
+      <a href="food.html" class="block py-3 text-lg rounded-md hover:text-red-600 focus:outline-none  transition">
+        Food
+      </a>
+      <a href="hire.html" class="block py-3 text-lg rounded-md hover:text-red-600 focus:outline-none  transition">
+        Hire
+      </a>
+      <a href="support.html" class="block py-3 text-lg rounded-md hover:text-red-600 focus:outline-none  transition">
+        Support
+      </a>
+      <button onclick="toggleModal(true)"
+        class="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-500 transition hidden md:block">Login /
+        Signup</button>
+    </nav>
+  </header>
+
+
+  <main class="max-w-7xl mx-auto px-6 py-12">
+
+    <!-- Search Section -->
+    <section class="mb-12">
+      <h2 class="text-4xl font-extrabold mb-6 tracking-tight text-gray-800">Find your cravings</h2>
+      <form class="flex gap-5" role="search" aria-label="Search food or restaurant" onsubmit="return false;">
+        <input type="search" name="query" aria-label="Search food or restaurant"
+          placeholder="Search food or restaurant..."
+          class="flex-grow px-5 py-4 rounded-xl border border-gray-300 shadow-sm focus:ring-4 focus:ring-red-400 focus:outline-none text-lg" />
+        <button type="submit"
+          class="bg-red-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-red-700 focus-visible:ring-4 focus-visible:ring-red-400 focus:outline-none">
+          Search
+        </button>
+      </form>
+    </section>
+
+    <!-- Popular Near You -->
+    <section class="mb-16">
+      <h3 class="text-2xl font-semibold mb-8 text-gray-800">🍕 Popular Near You</h3>
+      <div id="food-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <!-- Sample card format (JS will populate) -->
+
+      </div>
+    </section>
+
+    <!-- Cart -->
+    <section>
+      <h3 class="text-2xl font-semibold mb-6 text-gray-800">🛒 Cart</h3>
+      <div id="cart-container"
+        class="bg-white rounded-xl shadow-md p-6 border border-gray-200 text-gray-700 font-medium min-h-[96px] max-h-[400px] overflow-y-auto">
+        Cart is empty. Add items to your order.
+      </div>
+      <div id="cart-total" class="mt-4 text-right font-bold text-lg text-red-600 select-none">
+        Total: ₹0
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer
+    class="relative bg-white/70 backdrop-blur-lg border-t border-gray-200 text-gray-700 text-sm py-10 mt-16 overflow-hidden">
+  
+    <!-- Floating gradient circles for style -->
+    <div
+      class="absolute -top-10 -left-10 w-40 h-40 bg-gradient-to-tr from-red-200 to-red-400 rounded-full opacity-30 blur-3xl animate-float">
+    </div>
+    <div
+      class="absolute -bottom-16 -right-10 w-60 h-60 bg-gradient-to-tr from-red-300 to-red-500 rounded-full opacity-20 blur-3xl animate-float">
+    </div>
+  
+    <div class="relative max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+  
+      <!-- Left Section -->
+      <p class="text-gray-600 text-center md:text-left">&copy; 2025
+        <span class="font-bold text-red-600">Sajilo Sathi</span>. All rights reserved.
+      </p>
+  
+      <!-- Right Links -->
+      <div class="flex flex-wrap justify-center md:justify-end gap-6">
+        <a href="#"
+          class="hover:text-red-600 font-medium transition-all duration-300 transform hover:scale-110">Privacy</a>
+        <a href="#" class="hover:text-red-600 font-medium transition-all duration-300 transform hover:scale-110">Terms</a>
+        <a href="#"
+          class="hover:text-red-600 font-medium transition-all duration-300 transform hover:scale-110">Contact</a>
+      </div>
+    </div>
+  
+    <!-- Divider -->
+    <div class="border-t border-gray-200 mt-8 max-w-7xl mx-auto"></div>
+  
+    <!-- Social Icons -->
+    <div class="relative max-w-7xl mx-auto px-6 mt-6 flex justify-center md:justify-end gap-6">
+  
+      <!-- Facebook -->
+      <a href="#"
+        class="relative group w-12 h-12 flex items-center justify-center rounded-full overflow-hidden transition-transform duration-300 transform hover:scale-110">
+        <span
+          class="absolute inset-0 bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 opacity-50  animate-gradient-x"></span>
+        <i class="fab fa-facebook-f text-white text-xl relative z-10 group-hover:drop-shadow-lg"></i>
+      </a>
+  
+      <!-- Twitter -->
+      <a href="#"
+        class="relative group w-12 h-12 flex items-center justify-center rounded-full overflow-hidden transition-transform duration-300 transform hover:scale-110">
+        <span
+          class="absolute inset-0 bg-gradient-to-r from-cyan-400 via-sky-500 to-blue-500 opacity-50  animate-gradient-x"></span>
+        <i class="fab fa-twitter text-white text-xl relative z-10 group-hover:drop-shadow-lg"></i>
+      </a>
+  
+      <!-- Instagram -->
+      <a href="#"
+        class="relative group w-12 h-12 flex items-center justify-center rounded-full overflow-hidden transition-transform duration-300 transform hover:scale-110">
+        <span
+          class="absolute inset-0 bg-gradient-to-r from-pink-400 via-pink-500 to-yellow-400 opacity-50  animate-gradient-x"></span>
+        <i class="fab fa-instagram text-white text-xl relative z-10 group-hover:drop-shadow-lg"></i>
+      </a>
+  
+      <!-- LinkedIn -->
+      <a href="#"
+        class="relative group w-12 h-12 flex items-center justify-center rounded-full overflow-hidden transition-transform duration-300 transform hover:scale-110">
+        <span
+          class="absolute inset-0 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 opacity-50  animate-gradient-x"></span>
+        <i class="fab fa-linkedin-in text-white text-xl relative z-10 group-hover:drop-shadow-lg"></i>
+      </a>
+  
+    </div>
+  
+  
+  
+  </footer>
+
+
+
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => {
+      const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+      menuBtn.setAttribute('aria-expanded', !expanded);
+      mobileMenu.classList.toggle('hidden');
+
+      // Animate hamburger to X
+      menuBtn.children[0].classList.toggle('rotate-45');
+      menuBtn.children[0].classList.toggle('translate-y-2');
+      menuBtn.children[1].classList.toggle('opacity-0');
+      menuBtn.children[2].classList.toggle('-rotate-45');
+      menuBtn.children[2].classList.toggle('-translate-y-2');
+    });
+
+    // Food data array
+    const foods = [
+      {
+        id: 1,
+        name: 'Pepperoni Pizza',
+        restaurant: 'Pizza Planet',
+        time: '25 mins',
+        price: 350,
+        img: 'https://i.pinimg.com/736x/a1/ff/23/a1ff23bda6f1d442c31cf6efc8b4344c.jpg'
+      },
+      {
+        id: 2,
+        name: 'Chicken Momo',
+        restaurant: 'Momo Ghar',
+        time: '20 mins',
+        price: 150,
+        img: 'https://i.pinimg.com/736x/b7/ed/33/b7ed33f8add82e98bc0540bd2615312f.jpg'
+      },
+      {
+        id: 3,
+        name: 'Burger',
+        restaurant: 'Burger Town',
+        time: '15 mins',
+        price: 220,
+        img: 'https://i.pinimg.com/736x/ae/a7/76/aea77686ef7abd6b426332cf3018e095.jpg'
+      },
+      {
+        id: 4,
+        name: 'Veg Thali',
+        restaurant: 'Spice Villa',
+        time: '30 mins',
+        price: 280,
+        img: 'https://i.pinimg.com/736x/5a/4f/09/5a4f097bdef4db4f3589289bf65c8bcd.jpg'
+      },
+      {
+        id: 5,
+        name: 'Sushi Platter',
+        restaurant: "Ocean's Delight",
+        time: '40 mins',
+        price: 600,
+        img: 'https://i.pinimg.com/736x/b1/21/41/b121419a4f6e16be30b58364b1b5681c.jpg'
+      },
+      {
+        id: 6,
+        name: 'Creamy Alfredo Pasta',
+        restaurant: 'Pasta House',
+        time: '35 mins',
+        price: 320,
+        img: 'https://i.pinimg.com/1200x/e6/72/eb/e672eba8e0838ab0a7073c6007eadef0.jpg'
+      },
+      {
+        id: 7,
+        name: 'Paneer Tikka',
+        restaurant: 'Grill House',
+        time: '28 mins',
+        price: 320,
+        img: 'https://i.pinimg.com/736x/5f/d4/32/5fd4328d6e3d5ad1b01b2c5d132d27e7.jpg'
+      },
+      {
+        id: 8,
+        name: 'Chicken Biryani',
+        restaurant: 'Spice Route',
+        time: '35 mins',
+        price: 450,
+        img: 'https://i.pinimg.com/736x/ac/8e/76/ac8e76ddd843f47545a58e585b702a48.jpg'
+      },
+      {
+        id: 9,
+        name: 'Chocolate Cake',
+        restaurant: 'Sweet Treats',
+        time: '15 mins',
+        price: 180,
+        img: 'https://i.pinimg.com/1200x/fe/0a/7c/fe0a7c1e8c941d87daa0e814bc8eb05d.jpg'
+      }
+    ];
+
+    // Cart object with itemId -> quantity
+    const cart = {};
+
+    const foodListEl = document.getElementById('food-list');
+    const cartContainerEl = document.getElementById('cart-container');
+    const cartTotalEl = document.getElementById('cart-total');
+
+    // Render food cards
+    function renderFoodList() {
+      foodListEl.innerHTML = '';
+      foods.forEach(food => {
+        const card = document.createElement('article');
+        card.className =
+          'card bg-white rounded-2xl shadow-md overflow-hidden cursor-pointer select-none border border-transparent hover:border-red-400 transition';
+
+        card.innerHTML = `
+          <img src="${food.img}" alt="${food.name}"
+            class="w-full h-56 object-cover rounded-t-2xl" loading="lazy" />
+          <div class="p-6">
+            <h4 class="font-bold text-xl mb-1 text-gray-900">${food.name}</h4>
+            <p class="text-gray-600 text-sm mb-4">${food.restaurant} - ${food.time}</p>
+            <div class="flex justify-between items-center">
+              <span class="text-red-600 font-extrabold text-lg">₹${food.price}</span>
+              <button data-id="${food.id}"
+                class="bg-red-100 text-red-600 px-4 py-2 rounded-full font-semibold hover:bg-red-200 focus-visible:ring-2 focus-visible:ring-red-400 focus:outline-none">
+                Add
+              </button>
+            </div>
+          </div>
+        `;
+
+        foodListEl.appendChild(card);
+      });
+    }
+
+    // Update cart UI
+    function updateCart() {
+      // Clear cart container
+      cartContainerEl.innerHTML = '';
+
+      const itemIds = Object.keys(cart);
+      if (itemIds.length === 0) {
+        cartContainerEl.textContent = 'Cart is empty. Add items to your order.';
+        cartTotalEl.textContent = 'Total: ₹0';
+        return;
+      }
+
+      // Create a list container
+      const ul = document.createElement('ul');
+      ul.className = 'space-y-4';
+
+      let total = 0;
+
+      itemIds.forEach(id => {
+        const food = foods.find(f => f.id === +id);
+        if (!food) return;
+
+        const qty = cart[id];
+        const itemTotal = qty * food.price;
+        total += itemTotal;
+
+        // List item
+        const li = document.createElement('li');
+        li.className = 'flex justify-between items-center';
+
+        li.innerHTML = `
+          <div class="flex items-center space-x-4">
+            <img src="${food.img}" alt="${food.name}" class="w-12 h-12 rounded object-cover" />
+            <div>
+              <p class="font-semibold text-gray-900">${food.name}</p>
+              <p class="text-sm text-gray-600">₹${food.price} × ${qty} = ₹${itemTotal}</p>
+            </div>
+          </div>
+          <div class="flex items-center space-x-2">
+            <button aria-label="Decrease quantity" data-id="${food.id}" class="decrease bg-gray-200 rounded-full w-7 h-7 flex items-center justify-center hover:bg-gray-300 focus:outline-none">
+              −
+            </button>
+            <span class="font-semibold">${qty}</span>
+            <button aria-label="Increase quantity" data-id="${food.id}" class="increase bg-gray-200 rounded-full w-7 h-7 flex items-center justify-center hover:bg-gray-300 focus:outline-none">
+              +
+            </button>
+            <button aria-label="Remove item" data-id="${food.id}" class="remove ml-4 text-red-600 hover:text-red-800 focus:outline-none" title="Remove item">
+              &times;
+            </button>
+          </div>
+        `;
+
+        ul.appendChild(li);
+      });
+
+      cartContainerEl.appendChild(ul);
+      cartTotalEl.textContent = `Total: ₹${total}`;
+    }
+
+    // Add item to cart
+    function addToCart(id) {
+      if (cart[id]) {
+        cart[id]++;
+      } else {
+        cart[id] = 1;
+      }
+      updateCart();
+    }
+
+    // Remove item from cart
+    function removeFromCart(id) {
+      delete cart[id];
+      updateCart();
+    }
+
+    // Change quantity (+ or -)
+    function changeQuantity(id, delta) {
+      if (!cart[id]) return;
+      cart[id] += delta;
+      if (cart[id] <= 0) {
+        removeFromCart(id);
+      } else {
+        updateCart();
+      }
+    }
+
+    // Initialize
+    function init() {
+      renderFoodList();
+
+      // Add event delegation for Add buttons
+      foodListEl.addEventListener('click', e => {
+        if (e.target.tagName === 'BUTTON' && e.target.hasAttribute('data-id')) {
+          const id = e.target.getAttribute('data-id');
+          addToCart(id);
+        }
+      });
+
+      // Add event delegation for cart controls (increase, decrease, remove)
+      cartContainerEl.addEventListener('click', e => {
+        const id = e.target.getAttribute('data-id');
+        if (!id) return;
+
+        if (e.target.classList.contains('increase')) {
+          changeQuantity(id, 1);
+        } else if (e.target.classList.contains('decrease')) {
+          changeQuantity(id, -1);
+        } else if (e.target.classList.contains('remove')) {
+          removeFromCart(id);
+        }
+      });
+    }
+
+    window.onload = init;
+
+    // Optional: toggleModal function for login/signup modal (if needed)
+    function toggleModal(show) {
+      // Implement if modal exists or remove calls
+    }
+  </script>
+
+</body>
+
+</html>

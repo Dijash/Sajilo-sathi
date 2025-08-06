@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sajilo Sathi | Your Daily Life Companion</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+          },
+          animation: {
+            fadeIn: 'fadeIn 1.5s ease-in-out',
+            float: 'float 6s ease-in-out infinite',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: 0 },
+              '100%': { opacity: 1 },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Header -->
+  <header
+    class="bg-white/90 backdrop-blur-md shadow-md sticky top-0 z-50 border-b border-gray-200 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="index.html"
+        class="text-3xl font-extrabold text-red-600 hover:text-red-700 transition-colors duration-300 select-none">
+        Sajilo Sathi
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex space-x-10 text-base font-semibold text-gray-700 tracking-wide">
+        <a href="index.html"
+          class="relative group px-2 py-1 hover:text-red-600 focus:outline-none  rounded-md">
+          Home
+          <span
+            class="absolute left-0 -bottom-1 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full group-focus:w-full"></span>
+        </a>
+        <a href="ride.html"
+          class="relative group px-2 py-1 hover:text-red-600 focus:outline-none  rounded-md">
+          Ride
+          <span
+            class="absolute left-0 -bottom-1 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full group-focus:w-full"></span>
+        </a>
+        <a href="food.html"
+          class="relative group px-2 py-1 hover:text-red-600 focus:outline-none  rounded-md">
+          Food
+          <span
+            class="absolute left-0 -bottom-1 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full group-focus:w-full"></span>
+        </a>
+        <a href="hire.html"
+          class="relative group px-2 py-1 hover:text-red-600 focus:outline-none  rounded-md">
+          Hire
+          <span
+            class="absolute left-0 -bottom-1 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full group-focus:w-full"></span>
+        </a>
+        <a href="support.html"
+          class="relative group px-2 py-1 hover:text-red-600 focus:outline-none  rounded-md">
+          Support
+          <span
+            class="absolute left-0 -bottom-1 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full group-focus:w-full"></span>
+        </a>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <button id="menu-btn" aria-label="Toggle menu" aria-expanded="false"
+        class="md:hidden flex flex-col justify-center items-center w-10 h-10 space-y-2 focus:outline-none focus:ring-red-600 rounded">
+        <span class="block w-7 h-0.5 bg-red-600 rounded transition-transform origin-left duration-300"></span>
+        <span class="block w-7 h-0.5 bg-red-600 rounded transition-opacity duration-300"></span>
+        <span class="block w-7 h-0.5 bg-red-600 rounded transition-transform origin-left duration-300"></span>
+      </button>
+    </div>
+
+    <!-- Mobile Nav Menu -->
+    <nav id="mobile-menu"
+      class="hidden md:hidden bg-white border-t border-gray-200 shadow-lg max-w-7xl mx-auto px-6 py-6 space-y-6 text-center font-semibold text-gray-700 rounded-b-lg">
+      <a href="index.html"
+        class="block py-3 text-lg rounded-md hover:text-red-600 focus:outline-none  transition">
+        Home
+      </a>
+      <a href="ride.html"
+        class="block py-3 text-lg rounded-md hover:text-red-600 focus:outline-none  transition">
+        Ride
+      </a>
+      <a href="food.html"
+        class="block py-3 text-lg rounded-md hover:text-red-600 focus:outline-none  transition">
+        Food
+      </a>
+      <a href="hire.html"
+        class="block py-3 text-lg rounded-md hover:text-red-600 focus:outline-none  transition">
+        Hire
+      </a>
+      <a href="support.html"
+        class="block py-3 text-lg rounded-md hover:text-red-600 focus:outline-none  transition">
+        Support
+      </a>
+      <button onclick="toggleModal(true)"
+        class="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-500 transition hidden md:block">Login /
+        Signup</button>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative bg-gradient-to-r from-red-600 to-pink-500 text-white py-24 overflow-hidden">
+    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/connected.png')] opacity-5">
+    </div>
+    <div class="max-w-7xl mx-auto px-6 text-center relative z-10 animate-fadeIn">
+      <h2 class="text-5xl font-extrabold mb-4 leading-tight">Your Daily Life Companion</h2>
+      <p class="text-lg mb-8 max-w-2xl mx-auto">One app for all your needs — book a ride, get your favorite food,
+        hire skilled professionals, and more.</p>
+      <a href="#services"
+        class="bg-white text-red-600 font-semibold py-3 px-6 rounded-full hover:bg-gray-100 transition duration-300">Explore
+        Services</a>
+    </div>
+  </section>
+
+  <!-- Services Grid -->
+  <section id="services" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <h3 class="text-4xl font-bold text-center mb-16">Our Services</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+        <!-- Card: Ride Sharing -->
+        <div
+          class="bg-white shadow-xl p-6 rounded-xl hover:shadow-2xl transition duration-300 transform hover:scale-105">
+          <div class="bg-red-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-4 animate-float">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-600" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <h4 class="text-xl font-semibold mb-2">Ride Sharing</h4>
+          <p class="text-sm text-gray-600">Fast and affordable rides whenever you need them. Book in seconds.</p>
+        </div>
+
+        <!-- Card: Food Delivery -->
+        <div
+          class="bg-white shadow-xl p-6 rounded-xl hover:shadow-2xl transition duration-300 transform hover:scale-105">
+          <div class="bg-yellow-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-4 animate-float">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-500" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path d="M4 6h16M4 10h16M4 14h10M4 18h6" stroke-linecap="round" stroke-linejoin="round"
+                stroke-width="2" />
+            </svg>
+          </div>
+          <h4 class="text-xl font-semibold mb-2">Food Delivery</h4>
+          <p class="text-sm text-gray-600">Order from top restaurants and get it delivered hot to your doorstep.</p>
+        </div>
+
+        <!-- Card: Hire Professionals -->
+        <div
+          class="bg-white shadow-xl p-6 rounded-xl hover:shadow-2xl transition duration-300 transform hover:scale-105">
+          <div class="bg-blue-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-4 animate-float">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-500" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path d="M12 6v6l4 2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+            </svg>
+          </div>
+          <h4 class="text-xl font-semibold mb-2">Hire Professionals</h4>
+          <p class="text-sm text-gray-600">Need help at home? Book plumbers, electricians, and other experts.</p>
+        </div>
+
+        <!-- Card: Parcel Delivery -->
+        <div
+          class="bg-white shadow-xl p-6 rounded-xl hover:shadow-2xl transition duration-300 transform hover:scale-105">
+          <div class="bg-green-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-4 animate-float">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path d="M3 10h11l4 8H7l-4-8z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+            </svg>
+          </div>
+          <h4 class="text-xl font-semibold mb-2">Parcel Delivery</h4>
+          <p class="text-sm text-gray-600">Send or receive packages with real-time tracking and secure handling.</p>
+        </div>
+
+        <!-- Card: Grocery Delivery -->
+        <div
+          class="bg-white shadow-xl p-6 rounded-xl hover:shadow-2xl transition duration-300 transform hover:scale-105">
+          <div class="bg-purple-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-4 animate-float">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-600" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+            </svg>
+          </div>
+          <h4 class="text-xl font-semibold mb-2">Grocery Delivery</h4>
+          <p class="text-sm text-gray-600">Groceries from your favorite local stores delivered in under an hour.</p>
+        </div>
+
+        <!-- Card: Emergency Help -->
+        <div
+          class="bg-white shadow-xl p-6 rounded-xl hover:shadow-2xl transition duration-300 transform hover:scale-105">
+          <div class="bg-red-200 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-4 animate-float">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-700" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path d="M13 16h-1v-4h-1m1-4h.01M21 12A9 9 0 103 12a9 9 0 0018 0z" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="2" />
+            </svg>
+          </div>
+          <h4 class="text-xl font-semibold mb-2">Emergency Help</h4>
+          <p class="text-sm text-gray-600">Quick response from verified emergency personnel near you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer
+    class="relative bg-white/70 backdrop-blur-lg border-t border-gray-200 text-gray-700 text-sm py-10 mt-16 overflow-hidden">
+  
+    <!-- Floating gradient circles for style -->
+    <div
+      class="absolute -top-10 -left-10 w-40 h-40 bg-gradient-to-tr from-red-200 to-red-400 rounded-full opacity-30 blur-3xl animate-float">
+    </div>
+    <div
+      class="absolute -bottom-16 -right-10 w-60 h-60 bg-gradient-to-tr from-red-300 to-red-500 rounded-full opacity-20 blur-3xl animate-float">
+    </div>
+  
+    <div class="relative max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+  
+      <!-- Left Section -->
+      <p class="text-gray-600 text-center md:text-left">&copy; 2025
+        <span class="font-bold text-red-600">Sajilo Sathi</span>. All rights reserved.
+      </p>
+  
+      <!-- Right Links -->
+      <div class="flex flex-wrap justify-center md:justify-end gap-6">
+        <a href="#"
+          class="hover:text-red-600 font-medium transition-all duration-300 transform hover:scale-110">Privacy</a>
+        <a href="#" class="hover:text-red-600 font-medium transition-all duration-300 transform hover:scale-110">Terms</a>
+        <a href="#"
+          class="hover:text-red-600 font-medium transition-all duration-300 transform hover:scale-110">Contact</a>
+      </div>
+    </div>
+  
+    <!-- Divider -->
+    <div class="border-t border-gray-200 mt-8 max-w-7xl mx-auto"></div>
+  
+    <!-- Social Icons -->
+    <div class="relative max-w-7xl mx-auto px-6 mt-6 flex justify-center md:justify-end gap-6">
+  
+      <!-- Facebook -->
+      <a href="#"
+        class="relative group w-12 h-12 flex items-center justify-center rounded-full overflow-hidden transition-transform duration-300 transform hover:scale-110">
+        <span
+          class="absolute inset-0 bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 opacity-50  animate-gradient-x"></span>
+        <i class="fab fa-facebook-f text-white text-xl relative z-10 group-hover:drop-shadow-lg"></i>
+      </a>
+  
+      <!-- Twitter -->
+      <a href="#"
+        class="relative group w-12 h-12 flex items-center justify-center rounded-full overflow-hidden transition-transform duration-300 transform hover:scale-110">
+        <span
+          class="absolute inset-0 bg-gradient-to-r from-cyan-400 via-sky-500 to-blue-500 opacity-50  animate-gradient-x"></span>
+        <i class="fab fa-twitter text-white text-xl relative z-10 group-hover:drop-shadow-lg"></i>
+      </a>
+  
+      <!-- Instagram -->
+      <a href="#"
+        class="relative group w-12 h-12 flex items-center justify-center rounded-full overflow-hidden transition-transform duration-300 transform hover:scale-110">
+        <span
+          class="absolute inset-0 bg-gradient-to-r from-pink-400 via-pink-500 to-yellow-400 opacity-50  animate-gradient-x"></span>
+        <i class="fab fa-instagram text-white text-xl relative z-10 group-hover:drop-shadow-lg"></i>
+      </a>
+  
+      <!-- LinkedIn -->
+      <a href="#"
+        class="relative group w-12 h-12 flex items-center justify-center rounded-full overflow-hidden transition-transform duration-300 transform hover:scale-110">
+        <span
+          class="absolute inset-0 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 opacity-50  animate-gradient-x"></span>
+        <i class="fab fa-linkedin-in text-white text-xl relative z-10 group-hover:drop-shadow-lg"></i>
+      </a>
+  
+    </div>
+  
+  
+  
+  </footer>
+
+  <!-- Login / Signup Modal -->
+  <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50 px-4">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md max-h-[90vh] overflow-y-auto relative">
+      <button onclick="toggleModal(false)" type="button" aria-label="Close modal"
+        class="absolute top-2 right-2 text-gray-400 hover:text-gray-600 text-3xl font-bold leading-none focus:outline-none focus:ring-red-600 rounded">
+        &times;
+      </button>
+      <h2 class="text-xl font-bold mb-4">Login / Signup</h2>
+      <form>
+        <input type="email" placeholder="Email" autocomplete="email" required
+          class="w-full p-3 border border-gray-300 rounded mb-3 focus:outline-none focus:ring-red-600" />
+        <input type="password" placeholder="Password" autocomplete="current-password" required
+          class="w-full p-3 border border-gray-300 rounded mb-6 focus:outline-none focus:ring-red-600" />
+        <button type="submit"
+          class="bg-red-600 text-white w-full py-2 rounded hover:bg-red-500 transition">Continue</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function toggleModal(show) {
+      const modal = document.getElementById('modal');
+      if (show) {
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden'; // Prevent background scroll
+      } else {
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    }
+
+    // Close modal on ESC key press
+    document.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('modal');
+      if (!modal.classList.contains('hidden') && e.key === 'Escape') {
+        toggleModal(false);
+      }
+    });
+
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuBtn.addEventListener('click', () => {
+      const expanded = menuBtn.getAttribute('aria-expanded') === 'true' || false;
+      menuBtn.setAttribute('aria-expanded', !expanded);
+      mobileMenu.classList.toggle('hidden');
+
+      // Animate hamburger to X
+      menuBtn.children[0].classList.toggle('rotate-45');
+      menuBtn.children[0].classList.toggle('translate-y-2');
+      menuBtn.children[1].classList.toggle('opacity-0');
+      menuBtn.children[2].classList.toggle('-rotate-45');
+      menuBtn.children[2].classList.toggle('-translate-y-2');
+    });
+  </script>
+
+</body>
+
+</html>
