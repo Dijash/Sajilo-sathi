@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Terms of Service | Sajilo Sathi</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body class="bg-white text-gray-800 font-sans leading-relaxed">
+
+  <!-- Header -->
+  <header
+    class="bg-white/90 backdrop-blur-md shadow-md sticky top-0 z-50 border-b border-gray-200 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="index.html"
+        class="text-3xl font-extrabold text-red-600 hover:text-red-700 transition-colors duration-300 select-none">
+        Sajilo Sathi
+      </a>
+  
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex space-x-10 text-base font-semibold text-gray-700 tracking-wide">
+        <a href="index.html" class="relative group px-2 py-1 hover:text-red-600 focus:outline-none  rounded-md">
+          Home
+          <span
+            class="absolute left-0 -bottom-1 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full group-focus:w-full"></span>
+        </a>
+        <a href="ride.html" class="relative group px-2 py-1 hover:text-red-600 focus:outline-none  rounded-md">
+          Ride
+          <span
+            class="absolute left-0 -bottom-1 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full group-focus:w-full"></span>
+        </a>
+        <a href="food.html" class="relative group px-2 py-1 hover:text-red-600 focus:outline-none  rounded-md">
+          Food
+          <span
+            class="absolute left-0 -bottom-1 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full group-focus:w-full"></span>
+        </a>
+        <a href="hire.html" class="relative group px-2 py-1 hover:text-red-600 focus:outline-none  rounded-md">
+          Hire
+          <span
+            class="absolute left-0 -bottom-1 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full group-focus:w-full"></span>
+        </a>
+        <a href="support.html" class="relative group px-2 py-1 hover:text-red-600 focus:outline-none  rounded-md">
+          Support
+          <span
+            class="absolute left-0 -bottom-1 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full group-focus:w-full"></span>
+        </a>
+      </nav>
+  
+      <!-- Mobile Menu Button -->
+      <button id="menu-btn" aria-label="Toggle menu" aria-expanded="false"
+        class="md:hidden flex flex-col justify-center items-center w-10 h-10 space-y-2 focus:outline-none focus:ring-red-600 rounded">
+        <span class="block w-7 h-0.5 bg-red-600 rounded transition-transform origin-left duration-300"></span>
+        <span class="block w-7 h-0.5 bg-red-600 rounded transition-opacity duration-300"></span>
+        <span class="block w-7 h-0.5 bg-red-600 rounded transition-transform origin-left duration-300"></span>
+      </button>
+    </div>
+  
+    <!-- Mobile Nav Menu -->
+    <nav id="mobile-menu"
+      class="hidden md:hidden bg-white border-t border-gray-200 shadow-lg max-w-7xl mx-auto px-6 py-6 space-y-6 text-center font-semibold text-gray-700 rounded-b-lg">
+      <a href="index.html" class="block py-3 text-lg rounded-md hover:text-red-600 focus:outline-none  transition">
+        Home
+      </a>
+      <a href="ride.html" class="block py-3 text-lg rounded-md hover:text-red-600 focus:outline-none  transition">
+        Ride
+      </a>
+      <a href="food.html" class="block py-3 text-lg rounded-md hover:text-red-600 focus:outline-none  transition">
+        Food
+      </a>
+      <a href="hire.html" class="block py-3 text-lg rounded-md hover:text-red-600 focus:outline-none  transition">
+        Hire
+      </a>
+      <a href="support.html" class="block py-3 text-lg rounded-md hover:text-red-600 focus:outline-none  transition">
+        Support
+      </a>
+      <button onclick="toggleModal(true)"
+        class="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-500 transition hidden md:block">Login /
+        Signup</button>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-4xl mx-auto px-6 py-16">
+    <h2 class="text-4xl font-bold text-red-600 mb-6">Terms of Service</h2>
+    <p class="text-gray-600 mb-8">
+      These Terms of Service govern your use of Sajilo Sathi’s website and platform. By accessing our services, you
+      agree to be bound by these terms.
+    </p>
+
+    <div class="space-y-10">
+      <section>
+        <h3 class="text-2xl font-semibold mb-2">1. Acceptance of Terms</h3>
+        <p class="text-gray-700">
+          By using our platform, you acknowledge that you’ve read, understood, and agree to be bound by these terms and
+          our Privacy Policy.
+        </p>
+      </section>
+
+      <section>
+        <h3 class="text-2xl font-semibold mb-2">2. Use of Services</h3>
+        <ul class="list-disc list-inside text-gray-700 space-y-1">
+          <li>You agree not to misuse the platform or violate applicable laws.</li>
+          <li>Accounts must not be used for fraudulent or unauthorized purposes.</li>
+          <li>Users are responsible for maintaining the security of their login credentials.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3 class="text-2xl font-semibold mb-2">3. User Content</h3>
+        <p class="text-gray-700">
+          You retain rights to the content you submit. However, by posting, you grant Sajilo Sathi a non-exclusive
+          license to use it to operate or promote the service.
+        </p>
+      </section>
+
+      <section>
+        <h3 class="text-2xl font-semibold mb-2">4. Termination</h3>
+        <p class="text-gray-700">
+          We reserve the right to suspend or terminate access to our platform at any time, with or without cause,
+          especially if terms are violated.
+        </p>
+      </section>
+
+      <section>
+        <h3 class="text-2xl font-semibold mb-2">5. Limitation of Liability</h3>
+        <p class="text-gray-700">
+          Sajilo Sathi shall not be liable for any indirect, incidental, or consequential damages arising out of your
+          use of the platform.
+        </p>
+      </section>
+
+      <section>
+        <h3 class="text-2xl font-semibold mb-2">6. Changes to Terms</h3>
+        <p class="text-gray-700">
+          We may update these terms from time to time. Continued use of the service after changes constitutes acceptance
+          of the new terms.
+        </p>
+      </section>
+
+      <section>
+        <h3 class="text-2xl font-semibold mb-2">7. Governing Law</h3>
+        <p class="text-gray-700">
+          These Terms are governed by the laws of Nepal. Any disputes shall be subject to the jurisdiction of Nepali
+          courts.
+        </p>
+      </section>
+
+      <section>
+        <h3 class="text-2xl font-semibold mb-2">8. Contact Information</h3>
+        <p class="text-gray-700">
+          For questions or concerns regarding these terms, please contact us at <a href="mailto:support@sajilosathi.com"
+            class="text-red-600 underline">support@sajilosathi.com</a>.
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white/80 backdrop-blur-md border-t border-gray-200 text-gray-700 text-sm py-10 mt-16">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p>&copy; 2025 <span class="font-bold text-red-600">Sajilo Sathi</span>. All rights reserved.</p>
+      <div class="flex space-x-6">
+        <a href="privacy.html" class="hover:text-red-600 font-medium transition-colors duration-300">Privacy</a>
+        <a href="terms.html" class="hover:text-red-600 font-medium transition-colors duration-300">Terms</a>
+        <a href="support.html#contact" class="hover:text-red-600 font-medium transition-colors duration-300">Contact</a>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 mt-6 flex justify-center md:justify-end gap-6">
+      <a href="#" class="text-gray-500 hover:text-red-600 transition-all duration-300 transform hover:scale-125">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="#" class="text-gray-500 hover:text-red-600 transition-all duration-300 transform hover:scale-125">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="#" class="text-gray-500 hover:text-red-600 transition-all duration-300 transform hover:scale-125">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="#" class="text-gray-500 hover:text-red-600 transition-all duration-300 transform hover:scale-125">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </div>
+  </footer>
+
+</body>
+
+</html>

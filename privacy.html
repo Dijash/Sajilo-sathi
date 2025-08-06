@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy Policy | Sajilo Sathi</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body class="bg-white text-gray-800 font-sans leading-relaxed">
+
+  <!-- Header -->
+  <header
+    class="bg-white/90 backdrop-blur-md shadow-md sticky top-0 z-50 border-b border-gray-200 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="index.html"
+        class="text-3xl font-extrabold text-red-600 hover:text-red-700 transition-colors duration-300 select-none">
+        Sajilo Sathi
+      </a>
+  
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex space-x-10 text-base font-semibold text-gray-700 tracking-wide">
+        <a href="index.html" class="relative group px-2 py-1 hover:text-red-600 focus:outline-none  rounded-md">
+          Home
+          <span
+            class="absolute left-0 -bottom-1 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full group-focus:w-full"></span>
+        </a>
+        <a href="ride.html" class="relative group px-2 py-1 hover:text-red-600 focus:outline-none  rounded-md">
+          Ride
+          <span
+            class="absolute left-0 -bottom-1 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full group-focus:w-full"></span>
+        </a>
+        <a href="food.html" class="relative group px-2 py-1 hover:text-red-600 focus:outline-none  rounded-md">
+          Food
+          <span
+            class="absolute left-0 -bottom-1 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full group-focus:w-full"></span>
+        </a>
+        <a href="hire.html" class="relative group px-2 py-1 hover:text-red-600 focus:outline-none  rounded-md">
+          Hire
+          <span
+            class="absolute left-0 -bottom-1 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full group-focus:w-full"></span>
+        </a>
+        <a href="support.html" class="relative group px-2 py-1 hover:text-red-600 focus:outline-none  rounded-md">
+          Support
+          <span
+            class="absolute left-0 -bottom-1 w-0 h-0.5 bg-red-600 transition-all group-hover:w-full group-focus:w-full"></span>
+        </a>
+      </nav>
+  
+      <!-- Mobile Menu Button -->
+      <button id="menu-btn" aria-label="Toggle menu" aria-expanded="false"
+        class="md:hidden flex flex-col justify-center items-center w-10 h-10 space-y-2 focus:outline-none focus:ring-red-600 rounded">
+        <span class="block w-7 h-0.5 bg-red-600 rounded transition-transform origin-left duration-300"></span>
+        <span class="block w-7 h-0.5 bg-red-600 rounded transition-opacity duration-300"></span>
+        <span class="block w-7 h-0.5 bg-red-600 rounded transition-transform origin-left duration-300"></span>
+      </button>
+    </div>
+  
+    <!-- Mobile Nav Menu -->
+    <nav id="mobile-menu"
+      class="hidden md:hidden bg-white border-t border-gray-200 shadow-lg max-w-7xl mx-auto px-6 py-6 space-y-6 text-center font-semibold text-gray-700 rounded-b-lg">
+      <a href="index.html" class="block py-3 text-lg rounded-md hover:text-red-600 focus:outline-none  transition">
+        Home
+      </a>
+      <a href="ride.html" class="block py-3 text-lg rounded-md hover:text-red-600 focus:outline-none  transition">
+        Ride
+      </a>
+      <a href="food.html" class="block py-3 text-lg rounded-md hover:text-red-600 focus:outline-none  transition">
+        Food
+      </a>
+      <a href="hire.html" class="block py-3 text-lg rounded-md hover:text-red-600 focus:outline-none  transition">
+        Hire
+      </a>
+      <a href="support.html" class="block py-3 text-lg rounded-md hover:text-red-600 focus:outline-none  transition">
+        Support
+      </a>
+      <button onclick="toggleModal(true)"
+        class="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-500 transition hidden md:block">Login /
+        Signup</button>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-4xl mx-auto px-6 py-16">
+    <h2 class="text-4xl font-bold text-red-600 mb-6">Privacy Policy</h2>
+    <p class="text-gray-600 mb-8">
+      This Privacy Policy explains how <span class="font-semibold">Sajilo Sathi</span> collects, uses, and protects your
+      personal information when you use our services or access our website.
+    </p>
+
+    <div class="space-y-10">
+      <section>
+        <h3 class="text-2xl font-semibold mb-2">1. Information We Collect</h3>
+        <ul class="list-disc list-inside text-gray-700 space-y-1">
+          <li>Personal details (name, email, phone number)</li>
+          <li>Location data (when you allow access)</li>
+          <li>Usage data (pages visited, features used)</li>
+          <li>Device and browser information</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3 class="text-2xl font-semibold mb-2">2. How We Use Your Information</h3>
+        <p>
+          We use your data to:
+        </p>
+        <ul class="list-disc list-inside text-gray-700 space-y-1 mt-2">
+          <li>Improve our services and user experience</li>
+          <li>Send updates, alerts, and support information</li>
+          <li>Ensure platform security and prevent fraud</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3 class="text-2xl font-semibold mb-2">3. Data Sharing & Third Parties</h3>
+        <p class="text-gray-700">
+          We do <strong>not sell</strong> your data. Your information may be shared with trusted third parties only to
+          provide essential services (e.g., hosting, analytics).
+        </p>
+      </section>
+
+      <section>
+        <h3 class="text-2xl font-semibold mb-2">4. Your Rights</h3>
+        <p class="text-gray-700">
+          You can request to access, update, or delete your data by contacting us at <a
+            href="mailto:support@sajilosathi.com" class="text-red-600 underline">support@sajilosathi.com</a>.
+        </p>
+      </section>
+
+      <section>
+        <h3 class="text-2xl font-semibold mb-2">5. Cookies & Tracking</h3>
+        <p class="text-gray-700">
+          We use cookies for performance and analytics. You can manage your cookie preferences through your browser
+          settings.
+        </p>
+      </section>
+
+      <section>
+        <h3 class="text-2xl font-semibold mb-2">6. Updates to This Policy</h3>
+        <p class="text-gray-700">
+          We may update this Privacy Policy from time to time. Changes will be posted on this page with the last updated
+          date.
+        </p>
+      </section>
+
+      <section>
+        <h3 class="text-2xl font-semibold mb-2">7. Contact Us</h3>
+        <p class="text-gray-700">
+          If you have questions about this Privacy Policy, please reach out at <a href="mailto:support@sajilosathi.com"
+            class="text-red-600 underline">support@sajilosathi.com</a>.
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white/80 backdrop-blur-md border-t border-gray-200 text-gray-700 text-sm py-10 mt-16">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p>&copy; 2025 <span class="font-bold text-red-600">Sajilo Sathi</span>. All rights reserved.</p>
+      <div class="flex space-x-6">
+        <a href="privacy.html" class="hover:text-red-600 font-medium transition-colors duration-300">Privacy</a>
+        <a href="terms.html" class="hover:text-red-600 font-medium transition-colors duration-300">Terms</a>
+        <a href="support.html#contact" class="hover:text-red-600 font-medium transition-colors duration-300">Contact</a>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 mt-6 flex justify-center md:justify-end gap-6">
+      <a href="#" class="text-gray-500 hover:text-red-600 transition-all duration-300 transform hover:scale-125">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="#" class="text-gray-500 hover:text-red-600 transition-all duration-300 transform hover:scale-125">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="#" class="text-gray-500 hover:text-red-600 transition-all duration-300 transform hover:scale-125">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="#" class="text-gray-500 hover:text-red-600 transition-all duration-300 transform hover:scale-125">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </div>
+  </footer>
+
+</body>
+
+</html>
